@@ -10,6 +10,21 @@
 %token<int> TInt
 %token<string> TId TTEXT
 
+%type <unit list> list(TSPACE)  // Assuming TSPACE does not carry data
+%type <Ast_org.ol_option list> list(ol_option)
+%type <Ast_org.path_elt list> list(path_elt)
+%type <string list> list(textelm)
+%type <unit list> nonempty_list(TSPACE)  // Assuming TSPACE does not carry data
+%type <unit list> nonempty_list(TSTAR)  // Assuming TSTAR does not carry data
+%type <Ast_org.tailelm list> nonempty_list(tailelm)
+
+%type <Ast_org.tailelm> tailelm
+%type <Ast_org.tailelm> lm  // Assuming lm resolves to a tailelm or similar
+%type <string> elt
+%type <string list> split_path_elt
+%type <Ast_org.ol_option> org_option
+
+
 %start tail
 %type <unit> tail
 
